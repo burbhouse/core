@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Avenir";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/avenir-400.woff2") format("woff2");
+  font-display: swap;
+}
+
+body {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-md);
+  line-height: calc(var(--font-size-md) * 1.65);
+  color: var(--color-type);
+
+  h1, h2, h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-normal);
+
+    &.section-headline {
+      padding: 0 0 0.4em 0;
+      margin: 0 0 5vmin 0;
+      border-bottom: 1px solid var(--color-gray);
+    }
+  }
+}

@@ -1,13 +1,12 @@
 {
-  "name": "Contentful Gatsby Starter",
-  "description": "Gatsby starter for a Contentful project.",
+  "name": "Burbhouse",
   "keywords": [
     "contentful",
     "gatsby",
     "static",
     "ssg"
   ],
-  "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
+  "repository": "https://github.com:burbhouse/core.git",
   "success_url": "/",
   "buildpacks": [
     {

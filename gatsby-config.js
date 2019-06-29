@@ -18,17 +18,19 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'Burbhouse',
+    email: 'david+burbhouse@rerainc.com'
   },
-  pathPrefix: '/gatsby-contentful-starter',
+  pathPrefix: '/burbhouse',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-contentful',
-      options: contentfulConfig,
+      options: contentfulConfig
     }
-  ],
+  ]
 }

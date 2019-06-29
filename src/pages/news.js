@@ -7,6 +7,8 @@ import ArticlePreview from '../components/article-preview'
 import Base from '../templates/base'
 
 export default props => {
+  const posts = get(props, 'data.allContentfulNews.edges')
+
   const ArticleList = styled.ul`
     margin: 0;
     padding: 0;
@@ -16,23 +18,11 @@ export default props => {
     grid-gap: 5vmin;
   `
 
-  const Intro = styled.div`
-    margin-bottom: 3em;
-  `
-
-  const posts = get(props, 'data.allContentfulNews.edges')
-  const home = get(props, 'data.contentfulPage')
-
   return (
-    <Base {...props} title={home.title} heroImage={home.heroImage}>
-      <Intro
-        dangerouslySetInnerHTML={{
-          __html: home.body.childMarkdownRemark.html
-        }}
-      />
-      <h2 className='section-headline'>Recent News</h2>
+    <Base {...props} title='News' image='#'>
+      <h2 className='section-headline'>Recent articles</h2>
       <ArticleList>
-        {posts.slice(0, 3).map(({ node }) => {
+        {posts.map(({ node }) => {
           return (
             <li key={node.slug}>
               <ArticlePreview article={node} />
@@ -45,23 +35,10 @@ export default props => {
 }
 
 export const pageQuery = graphql`
-  query HomeQuery {
+  query NewsIndexQuery {
     site {
       siteMetadata {
         title
-      }
-    }
-    contentfulPage(slug: { eq: "home" }) {
-      title
-      heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
-      }
-      body {
-        childMarkdownRemark {
-          html
-        }
       }
     }
     allContentfulNews(sort: { fields: [publishDate], order: DESC }) {
@@ -73,7 +50,7 @@ export const pageQuery = graphql`
           tags
           heroImage {
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-             ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
           description {

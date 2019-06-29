@@ -1,26 +1,26 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import base from './base.css'
-import Container from './container'
-import Navigation from './navigation'
+import Header from './header'
+import styled from 'styled-components'
 
-class Template extends React.Component {
-  render() {
-    const { location, children } = this.props
-    let header
+export default props => {
+  const App = styled.div`
+    height: 100vh;
+  `
+  const Wrapper = styled.div`
+    overflow: auto;
+    max-width: 1180px;
+    margin: 0 auto;
+    position: relative;
+    top: 8em;
+    background: var(--color-white)
+  `
 
-    let rootPath = `/`
-    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = __PATH_PREFIX__ + `/`
-    }
-
-    return (
-      <Container>
-        <Navigation />
-        {children}
-      </Container>
-    )
-  }
+  return (
+    <App id='App'>
+      <Header pageWrapId={'page-wrap'} outerContainerId={'App'} />
+      <Wrapper id={'page-wrap'}>
+        {props.children}
+      </Wrapper>
+    </App>
+  )
 }
-
-export default Template

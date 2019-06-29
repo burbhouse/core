@@ -38,18 +38,18 @@ const questions = [
     when: !argv.spaceId && !process.env.CONTENTFUL_SPACE_ID,
     validate: input =>
       /^[a-z0-9]{12}$/.test(input) ||
-      'Space ID must be 12 lowercase characters',
+      'Space ID must be 12 lowercase characters'
   },
   {
     name: 'managementToken',
     when: !argv.managementToken,
-    message: 'Your Content Management API access token',
+    message: 'Your Content Management API access token'
   },
   {
     name: 'accessToken',
     when: !argv.accessToken && !process.env.CONTENTFUL_ACCESS_TOKEN_TOKEN,
-    message: 'Your Content Delivery API access token',
-  },
+    message: 'Your Content Delivery API access token'
+  }
 ]
 
 inquirer

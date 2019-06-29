@@ -1,25 +1,37 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import styled from 'styled-components'
 
-import styles from './article-preview.module.css'
+export default ({ article }) => {
+  const Preview = styled.div``
 
-export default ({ article }) => (
-  <div className={styles.preview}>
-    <Img alt="" fluid={article.heroImage.fluid} />
-    <h3 className={styles.previewTitle}>
-      <Link to={`/blog/${article.slug}`}>{article.title}</Link>
-    </h3>
-    <small>{article.publishDate}</small>
-    <p
-      dangerouslySetInnerHTML={{
-        __html: article.description.childMarkdownRemark.html,
-      }}
-    />
-    {article.tags.map(tag => (
-      <p className={styles.tag} key={tag}>
-        {tag}
-      </p>
-    ))}
-  </div>
-)
+  const Title = styled.h3`
+    font-size: 1.5em;
+  `
+  const Tag = styled.p`
+    color: #A0A0A0;
+    text-decoration: none;
+    display: inline-block;
+    padding: .33333rem .5rem;
+    line-height: 1;
+    border-radius: 2px;
+    border: 1px solid #A0A0A0;
+    margin-right: .5em;
+  `
+
+  return (
+    <Preview>
+      <Link to={`/news/${article.slug}`}>
+        <Img alt='' fluid={article.heroImage.fluid} />
+      </Link>
+      <Title>
+        <Link to={`/news/${article.slug}`}>{article.title}</Link>
+      </Title>
+      <p>{article.publishDate}</p>
+      {article.tags.map(tag => (
+        <Tag key={tag}>{tag}</Tag>
+      ))}
+    </Preview>
+  )
+}

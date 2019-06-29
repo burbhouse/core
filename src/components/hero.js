@@ -1,15 +1,50 @@
 import React from 'react'
 import Img from 'gatsby-image'
+import styled from 'styled-components'
 
-import styles from './hero.module.css'
+export default props => {
+  const Hero = styled.section`
+    position: relative;
+    background: var(--color-gray-light);
+    color: var(--color-white);
+  `
 
-export default ({ data }) => (
-  <div className={styles.hero}>
-    <Img className={styles.heroImage} alt={data.name} fluid={data.heroImage.fluid} />
-    <div className={styles.heroDetails}>
-      <h3 className={styles.heroHeadline}>{data.name}</h3>
-      <p className={styles.heroTitle}>{data.title}</p>
-      <p>{data.shortBio.shortBio}</p>
-    </div>
-  </div>
-)
+  const Image = styled(Img)`
+    height: 31.8vh;
+    max-height: 400px;
+  `
+  const Placeholder = styled.div`
+    display: block;
+    height: calc(var(--font-size-xl) * 2.8);
+    background-color: var(--color-gray-white)
+  `
+
+  const Details = styled.div`
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0);
+    padding: 0 0.5em;
+    width: 100%;
+  `
+
+  const Headline = styled.h1`
+    width: calc(100% - 10vmin);
+    margin: 0 auto;
+    padding: 2vmin 0;
+    font-size: var(--font-size-xl);
+  `
+  const image = props.image ? <Image alt={props.title ? props.title : ''} fluid={props.image.fluid} /> : <Placeholder />
+
+  return (
+    <Hero>
+      {image}
+      {props.title &&
+        <Details>
+          <Headline>{props.title}</Headline>
+        </Details>
+      }
+    </Hero>
+  )
+}
