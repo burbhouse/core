@@ -16,12 +16,12 @@ export default props => {
   const Placeholder = styled.div`
     display: block;
     height: calc(var(--font-size-xl) * 2.8);
-    background-color: var(--color-gray-white)
+    background-color: var(--color-black)
   `
 
   const Details = styled.div`
     position: absolute;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     left: 50%;
     bottom: 0;
     transform: translate(-50%, 0);

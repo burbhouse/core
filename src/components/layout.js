@@ -12,7 +12,10 @@ export default props => {
     margin: 0 auto;
     position: relative;
     top: 8em;
-    background: var(--color-white)
+    background: var(--color-white);
+    @media (max-width: 1180px) {
+      top: 5.5em;
+    }
   `
 
   return (

@@ -1,0 +1,16 @@
+{
+  "primary": {
+    "/": "Home",
+    "/events/": "Events",
+    "/news/": "News",
+    "/contact/": "Contact"
+  },
+  "secondary": {
+    "/": "Home",
+    "/board/": "Board",
+    "/projects/": "Projects",
+    "/events/": "Events",
+    "/news/": "News",
+    "/contact/": "Contact"
+  }
+}

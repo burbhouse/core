@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
+import Brand from './brand'
 
 export default props => {
   const Header = styled.header`
@@ -9,16 +10,8 @@ export default props => {
     position: fixed;
     z-index: 1;
     width: 90vw;
-    background: var(--color-white);
+    background: var(--color-header);
     padding-right: 10vw;
-  `
-
-  const Brand = styled.aside`
-    display: inline-flex;
-    flex-grow: 1;
-    align-items: center;
-    font-size: var(--font-size-xl);
-    margin-left: 1em;
   `
 
   const NavList = styled.ul`
@@ -30,6 +23,9 @@ export default props => {
     height: 15vh;
     max-height: 90px;
     font-size: var(--font-size-lg);
+    @media (max-width: 768px) {
+      visibility: hidden;
+    }
   `
 
   const NavListItem = styled.li`
@@ -38,29 +34,43 @@ export default props => {
     margin: 0 1em;
   `
 
+  const NavLink = styled(Link)`
+    color: var(--color-menu-link-primary);
+    text-decoration: none;
+    &:hover {
+      color: var(--color-menu-link-primary-hover);
+      border-bottom: solid 2px var(--color-menu-link-primary-hover);
+      margin-bottom: -2px;
+    }
+  `
+
+  let menu = require(`../menu.json`)
+  try {
+    menu = require(`../../site/menu.json`)
+  } catch (e) {
+    if (e.code === 'MODULE_NOT_FOUND') {
+      console.log('Site menu not found.')
+    }
+  }
+
   return (
     <div>
       <Header>
-        <StaticQuery
-          query={graphql`query HeadingQuery { site { siteMetadata { title } } }`}
-          render={data => (<Brand>{data.site.siteMetadata.title}</Brand>)}
-        />
+        <Brand />
         <NavList>
-          <NavListItem><Link to='/'>Home</Link></NavListItem>
-          <NavListItem><Link to='/events/'>Events</Link></NavListItem>
-          <NavListItem><Link to='/news/'>News</Link></NavListItem>
-          <NavListItem><Link to='/contact/'>Contact</Link></NavListItem>
+          {Object.keys(menu.primary).map( key => {
+            return (
+              <NavListItem key={`primary_${key}`}><NavLink to={key}>{menu.primary[key]}</NavLink></NavListItem>
+            )
+          })}
         </NavList>
       </Header>
       <Menu right {...props}>
-        <Link to='/'>Home</Link>
-        <Link to='/association/'>Association</Link>
-        <Link to='/board/'>Board</Link>
-        <Link to='/dock/'>Dock</Link>
-        <Link to='/projects/'>Projects</Link>
-        <Link to='/events/'>Events</Link>
-        <Link to='/news/'>News</Link>
-        <Link to='/contact/'>Contact</Link>
+        {Object.keys(menu.secondary).map( key => {
+          return (
+            <Link key={`secondary_${key}`} to={key}>{menu.secondary[key]}</Link>
+          )
+        })}
       </Menu>
     </div>
   )

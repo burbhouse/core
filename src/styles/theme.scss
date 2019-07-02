@@ -1,10 +1,27 @@
 :root {
-	--color-white: #fff;
+  --color-brand-primary: #F7EB50;
+  --color-brand-secondary: #111;
+
+  --color-white: #fff;
 	--color-gray-light: #eee;
 	--color-gray: #d1d1d1;
 	--color-gray-dark: #373a47;
-	--color-black: #111;
-  --color-type: #373F49;
+	--color-black: var(--color-brand-secondary);
+
+  --color-header: var(--color-brand-primary);
+  --color-page: var(--color-gray-light);
+
+  --color-type-body: #373F49;
+  --color-type-h1: var(--color-brand-primary);
+  --color-type-h2: var(--color-type-body);
+  --color-type-h3: var(--color-type-body);
+
+  --color-menu: var(--color-brand-secondary);
+  --color-menu-link-primary: var(--color-brand-secondary);
+  --color-menu-link-primary-hover: var(--color-gray-dark);
+  --color-menu-link-secondary: var(--color-white);
+  --color-menu-link-secondary-hover: var(--color-brand-primary);
+
   --font-family-header: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
   --font-family-body: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
 	--font-size-xl: 2em;

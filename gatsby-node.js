@@ -34,12 +34,12 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-        const newsTemplate = path.resolve('./src/templates/news.js')
+        const newsTemplate = fs.existsSync('./site/templates/news.js') ? './site/templates/news.js' : './src/templates/news.js'
         const posts = result.data.allContentfulNews.edges
         posts.forEach((post, index) => {
           createPage({
             path: `/news/${post.node.slug}/`,
-            component: newsTemplate,
+            component: path.resolve(newsTemplate),
             context: {
               slug: post.node.slug
             }
@@ -50,11 +50,11 @@ exports.createPages = ({ graphql, actions }) => {
         const pages = result.data.allContentfulPage.edges
         pages.forEach((page, index) => {
           // check if specific page template exists
-          let template = (test = `src/pages/${page.node.slug}.js`) => {
+          let template = (test = `pages/${page.node.slug}.js`) => {
             if (fs.existsSync(`./site/${test}`)) {
               return `./site/${test}`
-            } else if (fs.existsSync(`./${test}`)) {
-              return `./${test}`
+            } else if (fs.existsSync(`./src/${test}`)) {
+              return `./src/${test}`
             }
             return pageTemplate
           }

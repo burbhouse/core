@@ -1,11 +1,9 @@
-import './src/styles/theme.scss'
+import './src/browser.js'
 
 try {
-  var foo = require('./site/browser.js');
-}
-catch (e) {
-  if (e.code === 'MODULE_NOT_FOUND')
-    console.log('Site browser.js not found.');
-  else
-    throw e;
+  require(`../../site/browser.js`)
+} catch (e) {
+  if (e.code === 'MODULE_NOT_FOUND') {
+    console.log('Site browser scripts not found.')
+  }
 }

@@ -1,17 +1,17 @@
 .bm-menu {
-  background: var(--color-gray-dark);
+  background: var(--color-menu);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
   .bm-item-list {
-    color: var(--color-gray);
+    color: var(--color-menu-link-secondary);
     .bm-item {
       display: inline-block;
       text-decoration: none;
       margin-bottom: 10px;
-      color: var(--color-gray);
+      color: var(--color-menu-link-secondary);
       transition: color 0.2s;
       &:hover {
-        color: var(--color-white);
+        color: var(--color-menu-link-secondary-hover);
       }
       &:focus {
         outline: none;
@@ -31,7 +31,13 @@
   right: 30px;
   top: 30px;
   .bm-burger-bars {
-    background: var(--color-gray-dark);
+    background: var(--color-menu-link-primary);
+    opacity: 1 !important;
+  }
+  &:hover {
+    .bm-burger-bars {
+      background: var(--color-menu-link-primary-hover);
+    }
   }
 }
 
@@ -45,10 +51,15 @@
     right: 17px !important;
   }
   .bm-cross {
-    background: var(--color-white);
+    background: var(--color-menu-link-secondary);
+  }
+  &:hover {
+    .bm-cross {
+      background: var(--color-menu-link-secondary-hover);      
+    }
   }
 }
 
 .bm-morph-shape {
-  fill: var(--color-gray-dark);
+  fill: var(--color-menu);
 }

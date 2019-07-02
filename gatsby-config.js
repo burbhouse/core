@@ -19,7 +19,8 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'Burbhouse',
-    email: 'david+burbhouse@rerainc.com'
+    email: 'david+burbhouse@rerainc.com',
+    logo: '/images/logo.png'
   },
   pathPrefix: '/burbhouse',
   plugins: [
