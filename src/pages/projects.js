@@ -5,8 +5,7 @@ import styled from 'styled-components'
 import Page from '../templates/page'
 
 export default props => {
-  const ProjectList = styled.ul`
-  `
+  const ProjectList = styled.ul``
 
   const projects = get(props, 'data.allContentfulProject.edges')
 
@@ -15,7 +14,6 @@ export default props => {
       <h2 className='section-headline'>Projects</h2>
       <ProjectList>
         {projects.map(({ node }) => {
-          console.log(node)
           return (
             <li key={node.id}>
               <h4>{node.title}</h4>
