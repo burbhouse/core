@@ -1,0 +1,1 @@
+{"errors":[{"message":"String cannot represent value: { src: \"static/images/logo.png\" }","locations":[{"line":5,"column":7}],"path":["site","siteMetadata","logo"]}],"data":{"site":{"siteMetadata":{"title":"Burbhouse","logo":null}}}}
