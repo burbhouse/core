@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "author": "David Cabrera <david@rerainc.com>",
   "dependencies": {
+    "babel-plugin-styled-components": "^1.10.6",
     "css-loader": "^3.0.0",
     "gatsby-image": "^2.0.38",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-sass": "^2.1.0",
     "gatsby-plugin-sharp": "^2.0.34",
+    "gatsby-plugin-styled-components": "^3.1.0",
     "gatsby-source-contentful": "^2.0.48",
     "gatsby-transformer-remark": "^2.3.8",
     "gatsby-transformer-sharp": "^2.1.18",
