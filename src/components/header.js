@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
 import Brand from './brand'
@@ -58,7 +58,7 @@ export default props => {
       <Header>
         <Brand />
         <NavList>
-          {Object.keys(menu.primary).map( key => {
+          {Object.keys(menu.primary).map(key => {
             return (
               <NavListItem key={`primary_${key}`}><NavLink to={key}>{menu.primary[key]}</NavLink></NavListItem>
             )
@@ -66,7 +66,7 @@ export default props => {
         </NavList>
       </Header>
       <Menu right {...props}>
-        {Object.keys(menu.secondary).map( key => {
+        {Object.keys(menu.secondary).map(key => {
           return (
             <Link key={`secondary_${key}`} to={key}>{menu.secondary[key]}</Link>
           )

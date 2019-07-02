@@ -22,7 +22,7 @@ module.exports = {
     email: 'david+burbhouse@rerainc.com',
     logo: '/images/logo.png'
   },
-  pathPrefix: '/burbhouse',
+  pathPrefix: '/core',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',

@@ -6,9 +6,10 @@ import Base from './base'
 
 export default props => {
   const page = get(props, 'data.contentfulPage')
+  const siteTitle = get(props, 'data.site.siteMetadata.title')
 
   return (
-    <Base {...props} {...page}>
+    <Base {...props} {...page} siteTitle={siteTitle}>
       <div
         dangerouslySetInnerHTML={{
           __html: page.body.childMarkdownRemark.html

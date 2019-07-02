@@ -22,9 +22,10 @@ export default props => {
 
   const posts = get(props, 'data.allContentfulNews.edges')
   const home = get(props, 'data.contentfulPage')
+  const siteTitle = get(props, 'data.site.siteMetadata.title')
 
   return (
-    <Base {...props} title={home.title} heroImage={home.heroImage}>
+    <Base {...props} title={home.title} heroImage={home.heroImage} siteTitle={siteTitle}>
       <Intro
         dangerouslySetInnerHTML={{
           __html: home.body.childMarkdownRemark.html

@@ -9,7 +9,6 @@ export default props => {
   `
 
   const projects = get(props, 'data.allContentfulProject.edges')
-  console.log(projects)
 
   return (
     <Page location={props.location} {...props}>
@@ -40,6 +39,11 @@ export default props => {
 
 export const pageQuery = graphql`
   query ProjectsQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     contentfulPage(slug: { eq: "projects" }) {
       title
       heroImage {

@@ -11,9 +11,10 @@ export default props => {
   `
 
   const post = get(props, 'data.contentfulNews')
+  const siteTitle = get(props, 'data.site.siteMetadata.title')
 
   return (
-    <Base {...props} {...post}>
+    <Base {...props} {...post} siteTitle={siteTitle}>
       <Date>{post.publishDate}</Date>
       <div
         dangerouslySetInnerHTML={{

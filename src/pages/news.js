@@ -8,6 +8,7 @@ import Base from '../templates/base'
 
 export default props => {
   const posts = get(props, 'data.allContentfulNews.edges')
+  const siteTitle = get(props, 'data.site.siteMetadata.title')
 
   const ArticleList = styled.ul`
     margin: 0;
@@ -19,7 +20,7 @@ export default props => {
   `
 
   return (
-    <Base {...props} title='News' image='#'>
+    <Base {...props} title='News' image='#' siteTitle={siteTitle}>
       <h2 className='section-headline'>Recent articles</h2>
       <ArticleList>
         {posts.map(({ node }) => {
