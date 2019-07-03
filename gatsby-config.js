@@ -5,17 +5,16 @@ require('dotenv').config({
 let config
 try {
   config = require(`./src/config.js`)
-
-  try {
-    config = require(`./site/config.js`)
-  } catch (e) {
-    if (e.code === 'MODULE_NOT_FOUND') {
-      console.log('Site config not found.')
-    }
-  }
 } catch (e) {
   if (e.code === 'MODULE_NOT_FOUND') {
     console.log('Core config not found.')
+  }
+}
+try {
+  config = require(`./site/config.js`)
+} catch (e) {
+  if (e.code === 'MODULE_NOT_FOUND') {
+    console.log('Site config not found.')
   }
 }
 
