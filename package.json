@@ -39,7 +39,6 @@
     "rimraf": "^2.6.3",
     "yargs-parser": "^13.0.0"
   },
-  "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
@@ -52,7 +51,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "standard --fix",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "add-domain": "echo \"core.burbhouse.com\" > public/CNAME",
+    "deploy": "gatsby build --prefix-paths && yarn run add-domain && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
     "postinstall": "node ./bin/hello.js",
     "setup": "node ./bin/setup.js",

@@ -12,5 +12,11 @@
     "/events/": "Events",
     "/news/": "News",
     "/contact/": "Contact"
+  },
+  "tertiary": {
+    "/": "Home",
+    "/contact/": "Contact",
+    "/terms/": "Terms & Conditions",
+    "/privacy/": "Privacy Policy"
   }
 }

@@ -1,12 +1,12 @@
 {
-  "name": "Burbhouse",
+  "name": "Burbhouse Core",
   "keywords": [
     "contentful",
     "gatsby",
     "static",
     "ssg"
   ],
-  "repository": "https://github.com:burbhouse/core.git",
+  "repository": "https://github.com/burbhouse/core.git",
   "success_url": "/",
   "buildpacks": [
     {

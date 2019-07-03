@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
+import Footer from '../components/footer'
 
 export default props => {
   const Wrapper = styled.div`
@@ -19,6 +20,7 @@ export default props => {
       <Wrapper>
         {props.children}
       </Wrapper>
+      <Footer siteTitle={props.siteTitle} />
     </Layout>
   )
 }

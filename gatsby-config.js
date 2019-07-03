@@ -2,11 +2,16 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 })
 
-const contentfulConfig = {
-  spaceId: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  host: process.env.CONTENTFUL_HOST
+let config = require('./src/config.js')
+try {
+  config = require(`./site/config.js`)
+} catch (e) {
+  if (e.code === 'MODULE_NOT_FOUND') {
+    console.log('Site config not found.')
+  }
 }
+
+const contentfulConfig = config.contentful
 
 const { spaceId, accessToken } = contentfulConfig
 
@@ -17,11 +22,7 @@ if (!spaceId || !accessToken) {
 }
 
 module.exports = {
-  siteMetadata: {
-    title: 'Burbhouse',
-    email: 'david+burbhouse@rerainc.com',
-    logo: '/images/logo.png'
-  },
+  siteMetadata: config.meta,
   pathPrefix: '/',
   plugins: [
     'gatsby-transformer-remark',
