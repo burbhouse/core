@@ -1,1 +1,1 @@
-# burbhouse
+# burbhouse-core

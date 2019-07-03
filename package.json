@@ -1,5 +1,5 @@
 {
-  "name": "burbhouse",
+  "name": "burbhouse-core",
   "version": "1.0.0",
   "author": "David Cabrera <david@rerainc.com>",
   "dependencies": {
