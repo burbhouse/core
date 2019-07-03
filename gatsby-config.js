@@ -2,12 +2,20 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 })
 
-let config = require('./src/config.js')
+let config
 try {
-  config = require(`./site/config.js`)
+  config = require(`./src/config.js`)
+
+  try {
+    config = require(`./site/config.js`)
+  } catch (e) {
+    if (e.code === 'MODULE_NOT_FOUND') {
+      console.log('Site config not found.')
+    }
+  }
 } catch (e) {
   if (e.code === 'MODULE_NOT_FOUND') {
-    console.log('Site config not found.')
+    console.log('Core config not found.')
   }
 }
 
