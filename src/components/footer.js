@@ -6,7 +6,7 @@ export default props => {
   const Footer = styled.footer`
     display: flex;
     z-index: 1;
-    width: calc(100% - 8vmin);
+    width: calc(100% - 7.9vmin);
     background: var(--color-footer);
     padding: 0 4vmin;
     margin: 0;

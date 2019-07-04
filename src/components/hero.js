@@ -25,7 +25,7 @@ export default props => {
     left: 50%;
     bottom: 0;
     transform: translate(-50%, 0);
-    padding: 0 0.5em;
+    padding: 0;
     width: 100%;
   `
 

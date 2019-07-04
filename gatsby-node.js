@@ -1,3 +1,5 @@
+global.rootRequire = name => require(`${__dirname}/${name}`)
+
 const Promise = require('bluebird')
 const path = require('path')
 const fs = require('fs')
