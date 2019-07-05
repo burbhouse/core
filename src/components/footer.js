@@ -34,11 +34,11 @@ export default props => {
   `
 
   const NavLink = styled(Link)`
-    color: var(--color-menu-link-primary);
+    color: var(--color-menu-link-tertiary);
     text-decoration: none;
     &:hover {
-      color: var(--color-menu-link-primary-hover);
-      border-bottom: solid 2px var(--color-menu-link-primary-hover);
+      color: var(--color-menu-link-tertiary-hover);
+      border-bottom: solid 2px var(--color-menu-link-tertiary-hover);
       margin-bottom: -2px;
     }
   `
