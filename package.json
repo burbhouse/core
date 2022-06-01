@@ -20,7 +20,7 @@
     "react-burger-menu": "^2.6.10",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
-    "sharp": "^0.22.0",
+    "sharp": "^0.30.5",
     "standard": "^12.0.1",
     "style-loader": "^0.23.1",
     "styled-components": "^4.3.2"
